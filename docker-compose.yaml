@@ -1,0 +1,41 @@
+services:
+  php:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    networks:
+      - php-app-network
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./app/:/var/www/html/
+      - ./configs/nginx.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - php-app-network
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: mysqldb
+    volumes:
+      - mq-app-volume:/var/lib/
+    networks:
+      - php-app-network
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025" 
+      - "1025:1025"
+    networks:
+      - php-app-network
+
+volumes:
+  mq-app-volume:
+    external: true
+
+networks:
+  php-app-network:
+    external: true
