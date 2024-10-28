@@ -6,13 +6,10 @@ use src\Class\Cat;
 use src\Class\Dog;
 use src\Class\Bird;
 
-$cat = new Cat("Musya");
-$cat->about();
+$arrayOfClasses = [new Cat("Musya"), new Dog("Pakito"), new Bird("Birdy")];
 
-$dog = new Dog("Pakito");
-$dog->about();
-
-$bird = new Bird("Birdy");
-$bird->about();
+foreach ($arrayOfClasses as $animal) {
+    $animal->about();
+}
 
 ;
