@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Psr\Log;
 
-class LogLevel
+enum LogLevel: string
 {
     const EMERGENCY = 'emergency';
     const ALERT = 'alert';
