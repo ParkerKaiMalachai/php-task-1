@@ -1,23 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 use src\Class\Cat;
 use src\Class\Dog;
 use src\Class\Bird;
 
 $cat = new Cat("Musya");
-$cat->eat();
-$cat->makeSound();
-$cat->sleep();
+$cat->about();
 
 $dog = new Dog("Pakito");
-$dog->eat();
-$dog->makeSound();
-$dog->sleep();
-
+$dog->about();
 
 $bird = new Bird("Birdy");
-$bird->eat();
-$bird->makeSound();
-$bird->sleep();
+$bird->about();
 
 ;
