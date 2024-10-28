@@ -12,5 +12,6 @@ spl_autoload_register('myAutoloader');
 
 require "tasks/first_task.php";
 require "tasks/second_task.php";
+require "tasks/third_task.php";
 
 ;
